@@ -1,0 +1,10 @@
+.App {
+  min-height: 100vh;
+  padding: 3rem 2rem;
+  background: radial-gradient(
+    circle at 50% 0%,
+    #1d5940 0%,
+    #0f3d2e 55%,
+    #0a2d21 100%
+  );
+}
