@@ -80,7 +80,10 @@ export function CardGrid({ onCardClick }) {
   }
 
   return isLoading ? (
-    <p className="card-loading">Loading game...</p>
+    <div className="loading-screen">
+      <div className="spinner"></div>
+      <h2>Loading game...</h2>
+    </div>
   ) : (
     <div className="card-grid">
       {cards.map((player) => (
