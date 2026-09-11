@@ -12,7 +12,21 @@ function preloadImage(url) {
   });
 }
 
-export function CardGrid() {
+function shuffleCards(array) {
+  const arrayCopied = [...array];
+
+  for (let i = arrayCopied.length - 1; i >= 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    [arrayCopied[i], arrayCopied[randomIndex]] = [
+      arrayCopied[randomIndex],
+      arrayCopied[i],
+    ];
+  }
+
+  return arrayCopied;
+}
+
+export function CardGrid({ onCardClick }) {
   const playerName = [
     'Lionel_Messi',
     'Erling_Haaland',
@@ -59,6 +73,12 @@ export function CardGrid() {
     fetchPlayers();
   }, []);
 
+  function handleClick(cardId) {
+    const newCards = shuffleCards(cards);
+    setCards(newCards);
+    onCardClick(cardId, cards.length);
+  }
+
   return isLoading ? (
     <p className="card-loading">Loading game...</p>
   ) : (
@@ -68,6 +88,7 @@ export function CardGrid() {
           key={player.id}
           playerName={player.name}
           playerImage={player.image}
+          onSelect={() => handleClick(player.id)}
         />
       ))}
     </div>
