@@ -3,6 +3,21 @@ import { Card } from './Card.jsx';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
+const playerName = [
+  'Lionel_Messi',
+  'Erling_Haaland',
+  'Kylian_Mbappe',
+  'Rodrigo_Hernandez_Cascante',
+  'Michael_Olise',
+  'Jude_Bellingham',
+  'Pedro_Porro',
+  'Lisandro_Martinez',
+  'Dayot_Upamecano',
+  'Marc_Cucurella',
+  'Vozinha',
+  'Luis_de_la_Fuente',
+];
+
 function preloadImage(url) {
   return new Promise((resolve) => {
     const img = new Image();
@@ -27,21 +42,6 @@ function shuffleCards(array) {
 }
 
 export function CardGrid({ onCardClick }) {
-  const playerName = [
-    'Lionel_Messi',
-    'Erling_Haaland',
-    'Kylian_Mbappe',
-    'Rodrigo_Hernandez_Cascante',
-    'Michael_Olise',
-    'Jude_Bellingham',
-    'Pedro_Porro',
-    'Lisandro_Martinez',
-    'Dayot_Upamecano',
-    'Marc_Cucurella',
-    'Vozinha',
-    'Luis_de_la_Fuente',
-  ];
-
   const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
